@@ -6,6 +6,10 @@
     <title>Garage Parrot</title>
 </head>
 <body>
+<?php
+include "header.php";
+?>
+
     <div class="frontPicture">
         <img src="" class="background-picture" alt="">
         <img src="" class="m-background-picture" alt="">
@@ -29,19 +33,138 @@
     <div class="bloc2">
         <h2>VOS AVIS</h2>
         <div class="group">
+            <form action="form-process.php" method="post" id="form-process">
+                <div class="wraps">
+                    <div>
+                        <label for="name">Votre nom</label>
+                        <textarea id="name" name="name"></textarea>
+                    </div>
+                    <div>
+                        <label for="mark">Sur une échelle de 1 à 5, comment jugez-vous notre établissement ?</label>
+                        <select name="mark" id="mark">
+                            <option value="1">1 étoile</option>
+                            <option value="2">2 étoiles</option>
+                            <option value="3">3 étoiles</option>
+                            <option value="4">4 étoiles</option>
+                            <option value="5">5 étoiles</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message">Avez-vous des choses à ajouter sur notre prestation ?</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
 
-        <a href=""  class="index-button">
-            <button type="button">Nous laisser un commentaire</button>
-        </a>
+                    <button type="submit" value="Envoyer" name="send">Envoyer votre avis</button>
+            </form>
+        </div>
+
+        <div class="group">
+            <?php
+            include_once "connexion.php";
+            $req = mysqli_query($con , "SELECT name, message, mark FROM comments");
+            if(mysqli_num_rows($req) == 0){
+                echo "<p>Le garage ne propose pas ce type de services.</p>" ;
+            }else {
+            while($row=mysqli_fetch_assoc($req)){
+            ?>
+                <section class="groupir">
+                    <h3><?=$row['name']?></h3>
+                    <h5><?=$row['mark']?></h5>
+                </section>
+                <p><?=$row['message']?></p>
+                <?php
+                }
+            }
+            ?>
         </div>
     </div>
 
     <div class="bloc3">
         <h2>NOS SERVICES</h2>
         <div class="group">
+            <h3>Forfaits entretien</h3>
+                <table>
+                    <tr id="items">
+                        <th>Intitulé</th>
+                        <th>Prix</th>
+                    </tr>
+                    <?php
+                    include_once "connexion.php";
+                    $req = mysqli_query($con , "SELECT title, price FROM services WHERE category = 'Entretien'");
+                    if(mysqli_num_rows($req) == 0){
+                        echo "<p>Le garage ne propose pas ce type de services.</p>" ;
+                    }else {
+                        while($row=mysqli_fetch_assoc($req)){
+                            ?>
+                            <tr>
+                                <td><?=$row['title']?></td>
+                                <td><?=$row['price']?></td>
+                            </tr>
+                            <?php
+                        }
+                    }
+                    ?>
+                </table>
+        </div>
 
+        <div class="group">
+            <h3>Pièces détachées</h3>
+                <table>
+                    <tr id="items">
+                        <th>Intitulé</th>
+                        <th>Prix</th>
+                    </tr>
+                    <?php
+                    include_once "connexion.php";
+                    $req = mysqli_query($con , "SELECT title, price FROM services WHERE category = 'Carosserie'");
+                    if(mysqli_num_rows($req) == 0){
+                        echo "<p>Le garage ne propose pas ce type de services.</p>" ;
+                    }else {
+                        while($row=mysqli_fetch_assoc($req)){
+                            ?>
+                            <tr>
+                                <td><?=$row['title']?></td>
+                                <td><?=$row['price']?></td>
+                            </tr>
+                            <?php
+                        }
+                    }
+                    ?>
+                </table>
+        </div>
+
+        <div class="group">
+            <h3>Mécanique</h3>
+                <table>
+                    <tr id="items">
+                        <th>Intitulé</th>
+                        <th>Prix</th>
+                    </tr>
+                    <?php
+                    include_once "connexion.php";
+                    $req = mysqli_query($con , "SELECT title, price FROM services WHERE category = 'Mécanique'");
+                    if(mysqli_num_rows($req) == 0){
+                        echo "<p>Le garage ne propose pas ce type de services.</p>" ;
+                    }else {
+                        while($row=mysqli_fetch_assoc($req)){
+                            ?>
+                            <tr>
+                                <td><?=$row['title']?></td>
+                                <td><?=$row['price']?></td>
+                            </tr>
+                            <?php
+                        }
+                    }
+                    ?>
+                </table>
         </div>
     </div>
     
 </body>
+
+<footer>
+    <?php
+    include "footer.php";
+    ?>
+</footer>
 </html>

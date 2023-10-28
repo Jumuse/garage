@@ -108,3 +108,6 @@ VALUES (2, 'employee@employee.com', 'employee1', 'iuhrzuuzpgp6266842', false, 64
 /* TABLE comments */
 INSERT INTO comments (id, name, message, mark, moderates)
 VALUES (654899, 'Patricia', 'Le monsieur avec la moustache était très gentil.', 5, 2);
+
+INSERT INTO comments (id, name, message, mark, moderates)
+VALUES (654900, 'Luc', 'Plutôt déçu...', 2, 2);
