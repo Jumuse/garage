@@ -29,70 +29,34 @@
     </div>
 
     <div class="bloc2">
-        <h2>Nos horaires d'ouverture</h2>
-        <div class="timesWrap">
-            <div class="weekDays">
-                <p>LUNDI</p>
-                <p>MARDI</p>
-                <p>MERCREDI</p>
-                <p>JEUDI</p>
-                <p>VENDREDI</p>
-                <p>SAMEDI</p>
-                <p>DIMANCHE</p>
-            </div>
-
-            <div class="timetable">
-                <p><?php require_once 'Back/dates.php';
-                echo $weekHours; ?></p>
-                <p><?php echo $weekHours; ?></p>
-                <p><?php echo $wednesday; ?></p>
-                <p><?php echo $weekHours; ?></p>
-                <p><?php echo $weekHours; ?></p>
-                <p><?php echo $saturdayHours; ?></p>
-                <p><?php echo $sundayHours; ?></p>
-            </div>
-
-        </div>
 
         <div class="formulaire">
+            <form action="form-process.php" method="post" id="form-process">
+                <div class="wraps">
+                    <div>
+                        <label for="name">Votre nom</label>
+                        <textarea id="name" name="name"></textarea>
+                    </div>
+                    <div>
+                        <label for="mark">Sur une échelle de 1 à 5, comment jugez-vous notre établissement ?</label>
+                        <select name="mark" id="mark">
+                            <option value="1">1 étoile</option>
+                            <option value="2">2 étoiles</option>
+                            <option value="3">3 étoiles</option>
+                            <option value="4">4 étoiles</option>
+                            <option value="5">5 étoiles</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="message">Avez-vous des choses à ajouter sur notre prestation ?</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
 
-        <form action="" method="POST">
-
-            <div class="wraps">
-                <label for="name">Nom</label>
-                <input type="text" id="name" name="name">
-            </div>
-
-            <div>
-                <label for="name">Notez notre prestation !</label>
-
-                <input type="radio" id="mark" name="mark">
-                <label for="one">1</label>
-
-                <input type="radio" id="mark" name="mark">
-                <label for="two">2</label>
-
-                <input type="radio" id="mark" name="mark">
-                <label for="three">3</label>
-
-                <input type="radio" id="mark" name="mark">
-                <label for="four">4</label>
-
-                <input type="radio" id="mark" name="mark">
-                <label for="five">5</label>
-                
-            </div>
-
-            <div class="wraps">
-                <label for="comment">Commentaire</label>
-                <input type="text" id="comment" name="comment">
-            </div>
+                    <button type="submit" value="Envoyer" name="send">Envoyer votre avis</button>
+            </form>
 
 
-            <button type="submit" value="Envoyer" name="send">Envoyer</button>
-        </form>
-
-    </div>
+        </div>
 
 
 <?php

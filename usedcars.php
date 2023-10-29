@@ -6,6 +6,9 @@
     <title>Garage Parrot</title>
 </head>
 <body>
+<?php
+include "header.php";
+?>
     <div class="frontPicture">
         <img src="" class="background-picture" alt="">
         <img src="" class="m-background-picture" alt="">
@@ -85,4 +88,9 @@
     </div>
     
 </body>
+<footer>
+    <?php
+    include "footer.php";
+    ?>
+</footer>
 </html>

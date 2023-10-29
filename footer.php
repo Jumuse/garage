@@ -20,17 +20,18 @@
 
     <?php
     include_once "dates.php";
-    $req = mysqli_query($con , "SELECT opening_time_morning, closing_time_morning, opening_time_afternoon, closing_time_morning FROM garage");
+    include_once "connexion.php";
+    $req = mysqli_query($con , "SELECT opening_time_morning, closing_time_morning, opening_time_evening, closing_time_evening FROM garage");
     if(mysqli_num_rows($req) == 0){
-        echo "RIen dans la base de données" ;
+        echo "Il manque une information dans la base de données" ;
     }else {
         while($row=mysqli_fetch_assoc($req)){
             ?>
-            <section class="groupir">
-                <h3><?=$row['name']?></h3>
-                <h5><?=$row['mark']?></h5>
-            </section>
-            <p><?=$row['message']?></p>
+                <ul>
+                    <li>LUNDI au VENDREDI <?=$row['opening_time_morning']?> à <?=$row['closing_time_morning']?> & <?=$row['opening_time_evening']?> à <?=$row['closing_time_evening']?></li>
+                    <li>SAMEDI <?=$row['opening_time_morning']?> à <?=$row['closing_time_morning']?></li>
+                    <li>DIMANCHE fermé</li>
+                </ul>
             <?php
         }
     }
