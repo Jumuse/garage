@@ -24,9 +24,9 @@ if (isset($_SESSION["user_id"])) {
                 </li>
                 <li class="nav-item">
                 <?php if (isset($user)): ?>
-                    <a href="Login/logout.php">Se déconnecter</a>            
+                    <a href="logout.php">Se déconnecter</a>
                 <?php else: ?>            
-                    <a href="Login/login.php">Se connecter</a>         
+                    <a href="login.php">Connexion</a>
                 <?php endif; ?>
                 </li>
             </ul>

@@ -1,6 +1,5 @@
-/*
 <?php
-/*
+
 $is_invalid = false;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -32,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     $is_invalid = true;
 }
-*/
+
 ?> 
 
 
@@ -60,9 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <label for="password">Mot de passe</label>
         <input type="password" name="password" id="password">
         
-        <button>Log in</button>
+        <button>Se connecter</button>
     </form>
-
-    <p><a href="signup.php">S'inscrire</a>  </p>
 </body>
 </html>

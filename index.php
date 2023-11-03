@@ -116,7 +116,7 @@ include "header.php";
                     </tr>
                     <?php
                     include_once "connexion.php";
-                    $req = mysqli_query($con , "SELECT title, price FROM services WHERE category = 'Carosserie'");
+                    $req = mysqli_query($con , "SELECT title, price FROM services WHERE category = 'Pièces'");
                     if(mysqli_num_rows($req) == 0){
                         echo "<p>Le garage ne propose pas ce type de services.</p>" ;
                     }else {
