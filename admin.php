@@ -57,7 +57,7 @@ include_once "connexion.php";
 
 <div class="content">
     <h2>Modifier les véhicules d'occasion à la vente :</h2>
-
+    <a href="add_usedcar.php" class="Btn_add"> <img src="photos/Logos/plus.png"> Ajouter</a>
     <table>
         <tr id="items">
             <th>Titre</th>
@@ -92,8 +92,9 @@ include_once "connexion.php";
                     <td><?=$row['option2']?></td>
                     <td><?=$row['option3']?></td>
                     <td><?=$row['option4']?></td>
+                    <td><?=$row['main_photo']?></td>
 
-                    <td><a href="garage_modify.php?id=<?=$row['id']?>"><img src="photos/Logos/pen.png"></a></td>
+                    <td><a href="usedcar_modify.php?id=<?=$row['id']?>"><img src="photos/Logos/pen.png"></a></td>
                 </tr>
                 <?php
             }

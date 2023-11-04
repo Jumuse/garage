@@ -96,8 +96,8 @@ INSERT INTO services (id, title, category, price)
 VALUES (56, 'Vidange', 'Entretien', 70);
 
 /* TABLE usedcars */
-INSERT INTO usedcars (id, title, description, year, kilometers, price, option1, option2, option3, option4, connects)
-VALUES (23, 'Citroën C3 II', 'Superbe C3 Diesel volant à droite à vendre.', 2010, 90000, 10000, 'volant à droite', 'boîte manuelle à gauche', 'rétroviseurs', 'clés de contact', 6483);
+INSERT INTO usedcars (id, title, description, year, kilometers, price, option1, option2, option3, option4, main_photo, connects)
+VALUES (23, 'Citroën C3 II', 'Superbe C3 Diesel volant à droite à vendre.', 2010, 90000, 10000, 'volant à droite', 'boîte manuelle à gauche', 'rétroviseurs', 'clés de contact', 'C3.jpg', 6483);
 /* TABLE user */
 INSERT INTO user (id, email, name, password, is_admin, possesses, is_modified_by)
 VALUES (1, 'admin@admin.com', 'admin1', 'iuhrfiuzogp6269864', true, 648646, 6483);
