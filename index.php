@@ -37,7 +37,7 @@ include "header.php";
                 <div class="wraps">
                     <div>
                         <label for="name">Votre nom</label>
-                        <textarea id="name" name="name"></textarea>
+                        <input type="text" name ="name">
                     </div>
                     <div>
                         <label for="mark">Sur une échelle de 1 à 5, comment jugez-vous notre établissement ?</label>

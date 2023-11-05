@@ -8,7 +8,7 @@
     <link href="Style/footer-style.css" rel="stylesheet" type="text/css" />
     <link href="Style/header-style.css" rel="stylesheet" type="text/css" />
     <link href="Style/index-style.css" rel="stylesheet" type="text/css" />
-    <title>Restaurant Quai Antique</title>
+    <title>Garage Parrot</title>
 </head>
 
 
@@ -31,31 +31,28 @@
     <div class="bloc2">
 
         <div class="formulaire">
-            <form action="form-process.php" method="post" id="form-process">
+            <form action="contact-process.php" method="post" id="contact-process">
                 <div class="wraps">
                     <div>
-                        <label for="name">Votre nom</label>
-                        <textarea id="name" name="name"></textarea>
+                        <label for="firstname">Votre prénom</label>
+                        <input type="text" id=="firstname" name ="firstname">
+                        <label for="lastname">Votre nom</label>
+                        <input type="text" id="lastname" name ="lastname">
+                        <label for="lastname">Votre adresse email</label>
+                        <input type="email" id="email" name ="email">
+                        <label for="lastname">Votre téléphone</label>
+                        <input type="tel" id="telephone" name ="telephone">
                     </div>
                     <div>
-                        <label for="mark">Sur une échelle de 1 à 5, comment jugez-vous notre établissement ?</label>
-                        <select name="mark" id="mark">
-                            <option value="1">1 étoile</option>
-                            <option value="2">2 étoiles</option>
-                            <option value="3">3 étoiles</option>
-                            <option value="4">4 étoiles</option>
-                            <option value="5">5 étoiles</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="message">Avez-vous des choses à ajouter sur notre prestation ?</label>
+                        <label for="subject">Sujet</label>
+                        <input type="text" id="subject" name="subject">
+                        <label for="message">Votre message</label>
                         <textarea id="message" name="message"></textarea>
                     </div>
 
-                    <button type="submit" value="Envoyer" name="send">Envoyer votre avis</button>
+
+                    <button type="submit" value="Envoyer" name="send">Envoyer</button>
             </form>
-
-
         </div>
 
 

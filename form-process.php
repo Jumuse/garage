@@ -37,7 +37,7 @@ if ($stmt->execute()) {
 } else {
 
     if ($con->errno === 1062) {
-        die("email already taken");
+        die("Ce message existe déjà");
     } else {
         die($con->error . " " . $con->errno);
     }

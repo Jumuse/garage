@@ -5,11 +5,11 @@ $is_invalid = false;
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $con = require_once 'connexion.php';
     
-    $sql = sprintf("SELECT * FROM users
+    $sql = sprintf("SELECT * FROM user
                     WHERE email = '%s'",
                    $con->real_escape_string($_POST["email"]));
     
-    $is_admin = mysqli_query($con, "SELECT user_id FROM admin WHERE is_admin = true");
+    $is_admin = mysqli_query($con, "SELECT id FROM user WHERE is_admin = true");
     
     $result = $con->query($sql);
     

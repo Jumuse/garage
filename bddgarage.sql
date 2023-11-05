@@ -82,10 +82,22 @@ CREATE TABLE comments (
                           moderates INT NOT NULL,
                           FOREIGN KEY(moderates) REFERENCES user(id)
 );
+CREATE TABLE form (
+                          id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+                          firstname CHAR(30) NOT NULL,
+                          lastname CHAR(30) NOT NULL,
+                          email VARCHAR(40) NOT NULL,
+                          telephone INT(10) NOT NULL,
+                          subject CHAR(30),
+                          message VARCHAR(150),
+    /* user receives form messages. */
+                          receives INT NOT NULL,
+                          FOREIGN KEY(receives) REFERENCES user(id)
+);
 
 /* TABLE garage */
 INSERT INTO garage (id, name, address, phone_number, opening_time_morning, closing_time_morning, opening_time_evening, closing_time_evening)
-VALUES (648646, 'Garage Vincent Parrot', '125 Rue des Lilas 32560 Maville', 0523824591, 8:45, 12:00, 14:00, 18:00);
+VALUES (648646, 'Garage Vincent Parrot', '125 Rue des Lilas 32560 Maville', 0523824591, 8.45, 12.00, 14.00, 18.00);
 
 /* TABLE gallery */
 INSERT INTO gallery (id, photo_title, photo)
@@ -97,7 +109,7 @@ VALUES (56, 'Vidange', 'Entretien', 70);
 
 /* TABLE usedcars */
 INSERT INTO usedcars (id, title, description, year, kilometers, price, option1, option2, option3, option4, main_photo, connects)
-VALUES (23, 'Citroën C3 II', 'Superbe C3 Diesel volant à droite à vendre.', 2010, 90000, 10000, 'volant à droite', 'boîte manuelle à gauche', 'rétroviseurs', 'clés de contact', 'C3.jpg', 6483);
+VALUES (23, 'Citroën C3 II', 'Superbe C3 Diesel volant à droite à vendre.', 2010, 90000, 10000, 'volant à droite', 'boîte manuelle à gauche', 'rétroviseurs', 'clés de contact', 'C3', 6483);
 /* TABLE user */
 INSERT INTO user (id, email, name, password, is_admin, possesses, is_modified_by)
 VALUES (1, 'admin@admin.com', 'admin1', 'iuhrfiuzogp6269864', true, 648646, 6483);
@@ -111,3 +123,7 @@ VALUES (654899, 'Patricia', 'Le monsieur avec la moustache était très gentil.'
 
 INSERT INTO comments (id, name, message, mark, moderates)
 VALUES (654900, 'Luc', 'Plutôt déçu...', 2, 2);
+
+/* TABLE form */
+INSERT INTO form (id, firstname, lastname, email, telephone, subject, message, receives)
+VALUES (87951, 'Christine', 'Lachlan', 'clachlan@mail.com', 0782456371, 'Question', 'Bonjour, comment ça va ?', 2);
