@@ -88,8 +88,8 @@ CREATE TABLE form (
                           lastname CHAR(30) NOT NULL,
                           email VARCHAR(40) NOT NULL,
                           telephone INT(10) NOT NULL,
-                          subject CHAR(30),
-                          message VARCHAR(150),
+                          subject CHAR(30) NOT NULL,
+                          message VARCHAR(150) NOT NULL,
     /* user receives form messages. */
                           receives INT NOT NULL,
                           FOREIGN KEY(receives) REFERENCES user(id)

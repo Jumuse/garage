@@ -21,8 +21,8 @@ if (strlen($_POST["message"]) > 150) {
 
 $con = require_once 'connexion.php';
 
-$sql = "INSERT INTO form (id, firstname, lastname, email, telephone, subject, message, receives)
-        VALUES (?, ?, ?, ?, ?, ?, ?, 2)";
+$sql = "INSERT INTO form (firstname, lastname, email, telephone, subject, message, receives)
+        VALUES (?, ?, ?, ?, ?, ?, 2)";
 
 $stmt = $con->stmt_init();
 
@@ -30,7 +30,7 @@ if ( ! $stmt->prepare($sql)) {
     die("SQL error: " . $con->error);
 }
 
-$stmt->bind_param("sss",
+$stmt->bind_param("sssiss",
     $_POST["firstname"],
     $_POST["lastname"],
     $_POST["email"],

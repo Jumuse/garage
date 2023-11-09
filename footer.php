@@ -21,7 +21,7 @@
     <?php
     include_once "dates.php";
     include_once "connexion.php";
-    $req = mysqli_query($con , "SELECT opening_time_morning, closing_time_morning, opening_time_evening, closing_time_evening FROM garage");
+    $req = mysqli_query($con , "SELECT DATE_FORMAT($opening_time_morning, '%h'), closing_time_morning, opening_time_evening, closing_time_evening FROM garage");
     if(mysqli_num_rows($req) == 0){
         echo "Il manque une information dans la base de données" ;
     }else {
