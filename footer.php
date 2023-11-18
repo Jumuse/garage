@@ -2,7 +2,7 @@
 
 
 <div class="upwards">
-    <img src="" class="logo-footer" alt="logo">
+    <img src="photos/Logos/logo-footer.png" class="logo-footer" alt="logo">
     <p class="footerP">
         <?php 
             require_once 'dates.php';

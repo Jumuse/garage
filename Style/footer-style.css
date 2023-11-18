@@ -1,0 +1,31 @@
+footer {
+    margin: 0;
+    display: block;
+    background: #392C1E;
+    color: #B6AC97;
+    font-family: 'barlow', sans-serif;
+    text-align: center;
+}
+
+.footerP {
+    font-size: 18px;
+}
+.middlePart {
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+.logo-footer {
+    padding-top: 1em;
+    max-height: 100px;
+}
+
+@media screen and (min-width:640px){
+    footer {
+        font-size:20px;
+    }
+    .logo-footer {
+        height: 100px;
+    }
+}

@@ -12,7 +12,7 @@ if (isset($_SESSION["user_id"])) {
 
     <nav class="navbar">
         <a href="index.php" class="nav-branding">
-            <img src="Gallery/" alt="Logo">
+            <img src="photos/Logos/logo-footer.png" alt="Logo">
         </a>
 
             <ul class="nav-menu">
