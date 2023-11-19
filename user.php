@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,50 +15,6 @@ session_start();
 include "header.php";
 include_once "connexion.php";
 ?>
-
-<div class="content">
-    <h2>Modifier les informations du garage</h2>
-
-    <table>
-        <tr id="items">
-            <th>Adresse</th>
-            <th>Numéro de téléphone</th>
-            <th>Ouverture matin</th>
-            <th>Fermeture matin</th>
-            <th>Ouverture après midi</th>
-            <th>Fermeture après midi</th>
-            <th>Modifier</th>
-            <th>Supprimer</th>
-        </tr>
-        <?php
-        include_once "connexion.php";
-        $req = mysqli_query($con , "SELECT * FROM garage");
-        if(mysqli_num_rows($req) == 0){
-            echo "Aucune information présente !" ;
-
-        }else {
-            while($row=mysqli_fetch_assoc($req)){
-                ?>
-                <tr>
-                    <td><?=$row['address']?></td>
-                    <td><?=$row['phone_number']?></td>
-                    <td><?=$row['opening_time_morning']?></td>
-                    <td><?=$row['closing_time_morning']?></td>
-                    <td><?=$row['opening_time_evening']?></td>
-                    <td><?=$row['closing_time_evening']?></td>
-
-                    <td><a href="garage_modify.php?id=<?=$row['id']?>"><img src="photos/Logos/pen.png"></a></td>
-                </tr>
-                <?php
-            }
-
-        }
-        ?>
-
-
-    </table>
-
-</div>
 
 <div class="content">
     <h2>Modifier les véhicules d'occasion à la vente :</h2>
@@ -103,7 +56,6 @@ include_once "connexion.php";
                     <td><?=$row['main_photo']?></td>
 
                     <td><a href="usedcar_modify.php?id=<?=$row['id']?>"><img src="photos/Logos/pen.png"></a></td>
-                    <td><a href="usedcar_delete.php?id=<?=$row['id']?>" onclick="return(confirm('Confirmez-vous la suppression ?'));"><img src="photos/Logos/bin.png"></a></td>
                 </tr>
                 <?php
             }

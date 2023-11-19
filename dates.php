@@ -28,13 +28,3 @@ function retrieveDate() {
         echo $sundayHours;
     }
 };
-
-include_once "connexion.php";
-$req = mysqli_query($con , "SELECT * FROM garage");
-$row=mysqli_fetch_assoc($req);
-$address=$row['address'];
-$phone_number=$row['phone_number'];
-$opening_time_morning=$row['opening_time_morning'];
-$closing_time_morning=$row['closing_time_morning'];
-$opening_time_evening=$row['opening_time_evening'];
-$closing_time_evening=$row['closing_time_evening'];

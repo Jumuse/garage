@@ -98,7 +98,7 @@ CREATE TABLE form (
 
 /* TABLE garage */
 INSERT INTO garage (id, name, address, phone_number, opening_time_morning, closing_time_morning, opening_time_evening, closing_time_evening)
-VALUES (648646, 'Garage Vincent Parrot', '125 Rue des Lilas 32560 Maville', 0523824591, 8.45, 12.00, 14.00, 18.00);
+VALUES (648646, 'Garage Vincent Parrot', '125 Rue des Lilas 32560 Maville', 0523824591, 08.45.00, 12.00.00, 14.00.00, 18.00.00);
 
 /* TABLE gallery */
 INSERT INTO gallery (id, photo_title, photo)

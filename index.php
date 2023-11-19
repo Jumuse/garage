@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -14,13 +17,8 @@
 include "header.php";
 ?>
 
-    <div class="frontPicture">
-        <img src="" class="background-picture" alt="">
-        <img src="" class="m-background-picture" alt="">
-
-    </div>
     <div class="bloc1">
-        <img src="" class="imgB1" alt=''>
+
         <div class="wrapper">        
             <h2>LE GARAGE</h2>
             <p>

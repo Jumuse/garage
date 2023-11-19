@@ -1,8 +1,8 @@
 <?php
-if (isset($_SESSION["user_id"])) {
-    $con = require_once 'Back/connexion.php';   
+if (isset($_SESSION["id"])) {
+    $con = require_once 'connexion.php';
     $sql = "SELECT * FROM users
-            WHERE id = {$_SESSION["user_id"]}";            
+            WHERE id = {$_SESSION["id"]}";
     $result = $con->query($sql);  
     $user = $result->fetch_assoc();
 }

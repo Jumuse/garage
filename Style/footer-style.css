@@ -1,6 +1,9 @@
 footer {
     margin: 0;
-    display: block;
+    width: 100%;
+    height: auto;
+    position: absolute;
+    bottom: 0;
     background: #392C1E;
     color: #B6AC97;
     font-family: 'barlow', sans-serif;

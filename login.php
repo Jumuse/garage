@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -28,7 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                    $con->real_escape_string($_POST["email"]));
     
     $is_admin = mysqli_query($con, "SELECT id FROM user WHERE is_admin = true");
-    
+    $is_user = mysqli_query($con, "SELECT id FROM user WHERE is_admin = false");
+
     $result = $con->query($sql);
     
     $user = $result->fetch_assoc();
@@ -38,9 +42,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if (password_verify($_POST["password"], $user["password"])) {            
             session_start();           
             session_regenerate_id();
-            $_SESSION["user_id"] = $user["id"];
+            $_SESSION["id"] = $user["id"];
             header("Location: index.php");
             exit;
+            } if ($is_user) {
+            header("Location: user.php");
             } if ($is_admin) {
             header("Location: admin.php");
         }
