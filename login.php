@@ -1,5 +1,38 @@
 <?php
-session_start();
+$is_invalid = false;
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $con = require_once 'connexion.php';
+
+    $sql = sprintf("SELECT * FROM user
+                    WHERE email = '%s'",
+        $con->real_escape_string($_POST["email"]));
+
+    $is_admin = mysqli_query($con, "SELECT id FROM user WHERE is_admin = true");
+    $is_user = mysqli_query($con, "SELECT id FROM user WHERE is_admin = false");
+
+    $result = $con->query($sql);
+
+    $user = $result->fetch_assoc();
+
+    if ($user) {
+
+        if (password_verify($_POST["password"], $user["password"])) {
+            session_start();
+            session_regenerate_id();
+            $_SESSION["id"] = $user["id"];
+            header("Location: index.php");
+            exit;
+        } if ($is_user) {
+            header("Location: user.php");
+        } if ($is_admin) {
+            header("Location: admin.php");
+        }
+    }
+
+    $is_invalid = true;
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -17,45 +50,8 @@ session_start();
 
 
 <body>
-
 <?php
 include "header.php";
-
-$is_invalid = false;
-
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    $con = require_once 'connexion.php';
-    
-    $sql = sprintf("SELECT * FROM user
-                    WHERE email = '%s'",
-                   $con->real_escape_string($_POST["email"]));
-    
-    $is_admin = mysqli_query($con, "SELECT id FROM user WHERE is_admin = true");
-    $is_user = mysqli_query($con, "SELECT id FROM user WHERE is_admin = false");
-
-    $result = $con->query($sql);
-    
-    $user = $result->fetch_assoc();
-    
-    if ($user) {
-        
-        if (password_verify($_POST["password"], $user["password"])) {            
-            session_start();           
-            session_regenerate_id();
-            $_SESSION["id"] = $user["id"];
-            header("Location: index.php");
-            exit;
-            } if ($is_user) {
-            header("Location: user.php");
-            } if ($is_admin) {
-            header("Location: admin.php");
-        }
-    }
-
-    
-    $is_invalid = true;
-}
-
 ?>
     
     <h1>Se connecter</h1>
@@ -75,9 +71,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <button>Se connecter</button>
     </form>
 
-
-<?php
-include "footer.php";
-?>
 </body>
+
+    <?php
+    include "footer.php";
+    ?>
 </html>

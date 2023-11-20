@@ -56,6 +56,7 @@ include_once "connexion.php";
                     <td><?=$row['main_photo']?></td>
 
                     <td><a href="usedcar_modify.php?id=<?=$row['id']?>"><img src="photos/Logos/pen.png"></a></td>
+                    <td><a href="cusedcar_delete.php?id=<?=$row['id']?>" onclick="return(confirm('Confirmez-vous la suppression ?'));"><img src="photos/Logos/bin.png"></a></td>
                 </tr>
                 <?php
             }
@@ -104,6 +105,7 @@ include_once "connexion.php";
 
 
     </table>
+</div>
 
     <div class="content">
         <h2>Modérer les avis</h2>
@@ -140,14 +142,13 @@ include_once "connexion.php";
             }
             ?>
 
-
         </table>
-
+    </div>
 </body>
 
-<footer>
+
     <?php
     include "footer.php";
     ?>
-</footer>
+
 </html>

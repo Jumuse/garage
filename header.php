@@ -1,9 +1,9 @@
 <?php
 if (isset($_SESSION["id"])) {
     $con = require_once 'connexion.php';
-    $sql = "SELECT * FROM users
+    $sql = "SELECT * FROM user
             WHERE id = {$_SESSION["id"]}";
-    $result = $con->query($sql);  
+    $result = $con->query($sql);
     $user = $result->fetch_assoc();
 }
 ?>

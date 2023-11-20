@@ -33,7 +33,7 @@ if(isset($_POST['button'])){
 ?>
 
 <div class="form">
-    <a href="admin.php" class="back_btn">Retour</a>
+    <a href="user.php" class="back_btn">Retour</a>
     <h2>Modifier le service : <?=$row['title']?> </h2>
     <p class="erreur_message">
         <?php
